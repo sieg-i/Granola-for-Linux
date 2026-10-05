@@ -128,6 +128,7 @@ step "Rebuilding better-sqlite3-multiple-ciphers for Linux"
 BS3="$INSTALL_DIR/resources/app.asar.unpacked/node_modules/better-sqlite3-multiple-ciphers"
 BS3_VER="$(node -p "require('$BS3/package.json').version")"
 info "building Granola's fork of v$BS3_VER from source"
+
 cp -r "$BS3" "$WORK/bs3"
 ( cd "$WORK" && npm pack "better-sqlite3-multiple-ciphers@$BS3_VER" --silent >/dev/null \
     && tar xzf better-sqlite3-multiple-ciphers-*.tgz ) || die "could not fetch binding.gyp from npm"
